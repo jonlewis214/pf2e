@@ -1,0 +1,33 @@
+﻿name: Publish frpg-rules Package to GitHub Packages
+
+on:
+  push:
+    tags:
+      - 'v*' # This workflow runs automatically when you push a new tag like v7.2.1
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@jonlewis214' # Use the same scope as in package.json
+
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
