@@ -45,7 +45,7 @@ import {
     TokenDocumentPF2e,
 } from "@scene/index.ts";
 import { ActorDeltaPF2e } from "@scene/token-document/actor-delta.ts";
-import { monkeyPatchFoundry } from "@scripts/🐵🩹.ts";
+import { monkeyPatchFoundry } from "@scripts/monkey-patch.ts";
 import { CheckRoll, StrikeAttackRoll } from "@system/check/roll.ts";
 import { ClientDatabaseBackendPF2e } from "@system/client-backend.ts";
 import { DamageInstance, DamageRoll } from "@system/damage/roll.ts";
