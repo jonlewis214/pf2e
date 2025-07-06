@@ -1,9 +1,19 @@
 {
-    "name": "foundry-pf2e",
+    "name": "@jonlewis214/frpg-pf2e-rules",
     "version": "6.12.4",
-    "description": "",
-    "private": true,
+    "description": "A private, Windows-compatible, packaged version of the Foundry VTT PF2e system for the frpg project.",
     "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jonlewis214/pf2e.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "files": [
+        "build/",
+        "LICENSE"
+    ],
     "scripts": {
         "build": "npm run clean && npm run build:packs && vite build",
         "build:packs": "tsx ./build/build-packs.ts",
